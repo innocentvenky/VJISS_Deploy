@@ -1,0 +1,2262 @@
+{
+  "info": {
+    "_postman_id": "03dc362e-f487-4ac1-9d15-eba43a12c6e8",
+    "name": "VJISS_BACKEND",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "34284362"
+  },
+  "item": [
+    {
+      "name": "login",
+      "item": [
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "admin@gmail.com",
+                  "type": "text",
+                  "uuid": "e06417c8-42a7-4bc2-be8f-f070644e3112"
+                },
+                {
+                  "key": "password",
+                  "value": "admin",
+                  "type": "text",
+                  "uuid": "a39a69c1-32f0-4736-9d76-0e3f3c9ce197"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/login/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "login",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update-password",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"new_password\":\"Sayed@908\",\r\n    \"email\":\"patansayedbasha786@gmail.com\",\r\n    \r\n    \"otp\":\"281190\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/update_password/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "update_password",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "otp",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "patansayedbasha786@gmail.com",
+                  "type": "text",
+                  "uuid": "c44cf7f6-0fa2-46e7-a706-9e6a491cea02"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/send-otp/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "send-otp",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Create-User",
+      "item": [
+        {
+          "name": "create-user",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"patansayedbasha786@gmail.com\",\r\n    \"password\":\"Sayed@123\",\r\n    \"first_name\":\"sayed\",\r\n    \"last_name\":\"basha\",\r\n    \"phone_number\":\"9440436178\",\r\n    \"date_of_birth\":\"2007-05-07\",\r\n    \"otp\":\"777363\"\r\n    \r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/create_user/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "create_user",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "otp",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "patansayedbasha786@gmail.com",
+                  "type": "text",
+                  "uuid": "c44cf7f6-0fa2-46e7-a706-9e6a491cea02"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/send-otp/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "send-otp",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "staff/students-details",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NTYzMDI1LCJpYXQiOjE3Njg1NTk0MjUsImp0aSI6IjJjNDYzNDljNWQzZDQ2ZmFhMDk1YTFjYjg4MzE2NzQ2IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.SbgO0a5zVvPyJhY7qpAKogqOn6mVIdnCjkYDcwqr4VA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/users_details/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "users_details",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "coures",
+      "item": [
+        {
+          "name": "add-course",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NDAzMTA1LCJpYXQiOjE3NjgzMTY3MDUsImp0aSI6ImVmMDc1Y2QzMGM3YzRlMmY5NDIxNWU1MWJiNmQ1MjYxIiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.mqZnBozlYnQE3dsO-NZ1ixfKpZUYLa14l9F1Po7_Aa8",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "course_name",
+                  "value": "basha",
+                  "type": "text",
+                  "uuid": "c2984934-334b-45e8-8d80-340d36e58861"
+                },
+                {
+                  "key": "course_logo",
+                  "type": "file",
+                  "uuid": "796b16ba-50ea-4df3-8edf-ddca652743f3",
+                  "src": "postman-cloud:///1f0f0751-0fc5-4ea0-a132-2a4df5edc507"
+                },
+                {
+                  "key": "course_duration",
+                  "value": "django addmin deatils",
+                  "type": "text",
+                  "uuid": "8c64bda2-d711-4bd8-a80d-23754aca2d9f"
+                },
+                {
+                  "key": "course_fee",
+                  "value": "23",
+                  "type": "text",
+                  "uuid": "54d967c9-c29a-44fd-b036-4d46b9ae0440"
+                },
+                {
+                  "key": "course_description",
+                  "value": "hewffuhwe",
+                  "type": "text",
+                  "uuid": "9e2ecde0-fe48-4d1c-9a9b-246d56a916ed"
+                },
+                {
+                  "key": "",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "1cea48bb-f658-4705-b944-ad2a8ad01b13"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/add_course/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "add_course",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "course-details",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NzMyMjEzLCJpYXQiOjE3Njg2NDU4MTMsImp0aSI6ImMwNjExZjhkNDI2NTQ4MWViNTg2ZTA2YWFiZWEwNjlhIiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.8qOcU8mbCPxQAGF93NUhyKxLfe-iJFEdmsJPUW8PVNc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/course_details/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "course_details",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "course-particular_details",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NzMyMjEzLCJpYXQiOjE3Njg2NDU4MTMsImp0aSI6ImMwNjExZjhkNDI2NTQ4MWViNTg2ZTA2YWFiZWEwNjlhIiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.8qOcU8mbCPxQAGF93NUhyKxLfe-iJFEdmsJPUW8PVNc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/course_particular_details/eca1b0fb-0849-4243-8727-0f8f851bd083",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "course_particular_details",
+                "eca1b0fb-0849-4243-8727-0f8f851bd083"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "course-modify",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4MzE0Nzk5LCJpYXQiOjE3NjgzMTExOTksImp0aSI6IjZhYmFmN2Q5ZjE2ZDQ4Y2Y5OGExZDRhNWNmZjM0Y2U0IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.r5TKSVVNtdNLwzZpgWvcOIDHzo9lGh9a4Zm8d4LHwQU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "course_name",
+                  "value": "djang",
+                  "type": "text",
+                  "uuid": "c35b7bd1-3142-429a-b135-f06f208f547f"
+                },
+                {
+                  "key": "course_logo",
+                  "type": "file",
+                  "uuid": "73eeec13-ffe7-4981-b217-c93ff499e660",
+                  "src": "postman-cloud:///1f0f0751-0fc5-4ea0-a132-2a4df5edc507"
+                },
+                {
+                  "key": "course_duration",
+                  "value": "django addmin deatils",
+                  "type": "text",
+                  "uuid": "96b8b822-c13f-422b-b4a2-3a8f8849f7fc"
+                },
+                {
+                  "key": "course_fee",
+                  "value": "23",
+                  "type": "text",
+                  "uuid": "0590477a-f9fc-4eff-a680-43e6e07124e8"
+                },
+                {
+                  "key": "course_description",
+                  "value": "hewffuhwe",
+                  "type": "text",
+                  "uuid": "60ec01c3-1538-493e-91a0-cf7c171bacdf"
+                },
+                {
+                  "key": "course_duration",
+                  "value": "django addmin deatils",
+                  "type": "text",
+                  "uuid": "374fa362-a91d-4882-b519-4aa5dbb88182"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/modify_course/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "modify_course",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete-course",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4MzA5MDM3LCJpYXQiOjE3NjgzMDU0MzcsImp0aSI6IjI5ZGIzM2RkM2U3ZTQ3YjA5ZjhlMWE2Y2RhZDM2NjU2IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.WXBwZdYaWz9ZsD-7yOKnEBE2leHVCiJc0kgs7_uEE6c",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "admin@gmail.com",
+                  "type": "text",
+                  "uuid": "e06417c8-42a7-4bc2-be8f-f070644e3112"
+                },
+                {
+                  "key": "password",
+                  "value": "admin",
+                  "type": "text",
+                  "uuid": "a39a69c1-32f0-4736-9d76-0e3f3c9ce197"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/delete_course/eca1b0fb-0849-4243-8727-0f8f851bd083",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "delete_course",
+                "eca1b0fb-0849-4243-8727-0f8f851bd083"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Syllabus",
+      "item": [
+        {
+          "name": "Syllabus-add",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NzM1MjMyLCJpYXQiOjE3Njg2NDg4MzIsImp0aSI6ImEyN2JjNzMwNDljYjQwYTg5ZDgyNDlkNGQ4NmNhMWRiIiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.IPU1s4r6ZUfj9s5u2sCo3xrAgdM-6BwgzExMmnY-22E",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"course_id\":\"eca1b0fb-0849-4243-8727-0f8f851bd083\"\r\n   \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/add_syllabus/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "add_syllabus",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "details-syllabus",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NzMyMjEzLCJpYXQiOjE3Njg2NDU4MTMsImp0aSI6ImMwNjExZjhkNDI2NTQ4MWViNTg2ZTA2YWFiZWEwNjlhIiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.8qOcU8mbCPxQAGF93NUhyKxLfe-iJFEdmsJPUW8PVNc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "admin@gmail.com",
+                  "type": "text",
+                  "uuid": "e06417c8-42a7-4bc2-be8f-f070644e3112",
+                  "disabled": true
+                },
+                {
+                  "key": "password",
+                  "value": "admin",
+                  "type": "text",
+                  "uuid": "a39a69c1-32f0-4736-9d76-0e3f3c9ce197"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/syllabus_details/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "syllabus_details",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "syllabus-modify",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NDUwMDU3LCJpYXQiOjE3NjgzNjM2NTcsImp0aSI6Ijk0ZWFhYmRlMGY5ODQ4NTJiZTU0YjgxZjAxOTJhNDA5IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.IryjDt59-AsXJgx2xBdRfmGrQhLysACfd2OmOitv5HU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"course_name_id\":\"092678fe-3296-4f59-a3f5-7753bf42a960\",\r\n    \"module\":\"sdsf\",\r\n    \"description\":\"django\"\r\n    \r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/modify_syllabus/c0fa0917-0847-41cb-9c1f-f494fec8d8f7",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "modify_syllabus",
+                "c0fa0917-0847-41cb-9c1f-f494fec8d8f7"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "syllabus-delete",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NDUwNDU5LCJpYXQiOjE3NjgzNjQwNTksImp0aSI6IjJkZDVmYzYyMDFmZDQyYTk5MTE0NmE3OTY0YjczMTM1IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.qk_ONwVhSrr8YPvlt0l_j5uCkpeVZrsOcIeepFQeBXY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "admin@gmail.com",
+                  "type": "text",
+                  "uuid": "e06417c8-42a7-4bc2-be8f-f070644e3112"
+                },
+                {
+                  "key": "password",
+                  "value": "admin",
+                  "type": "text",
+                  "uuid": "a39a69c1-32f0-4736-9d76-0e3f3c9ce197"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/delete_syllabus/c0fa0917-0847-41cb-9c1f-f494fec8d8f7",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "delete_syllabus",
+                "c0fa0917-0847-41cb-9c1f-f494fec8d8f7"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "intenships",
+      "item": [
+        {
+          "name": "add-internship",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NzIyMDY0LCJpYXQiOjE3Njg2MzU2NjQsImp0aSI6ImM0MjMxNjg5OGNhZDQzNDI4OWQyM2U3Nzc2MmQ0ZjAyIiwidXNlcl9pZCI6IjVkMjIyNzNjLWVhMGMtNGJjNS1iOGQ5LTg2MjhmNDMzNWRiYyJ9.4BOsRsBwrSih9mM-PIjkyZB7vhjx7mKAdnmvp9U_hVc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"internship_name\":\"ml\",\r\n    \"internship_description\":\"hi we are proving \",\r\n    \"technologies\":\"python\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/add_internship_offers/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "add_internship_offers",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "internship-details",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NzIyMDY0LCJpYXQiOjE3Njg2MzU2NjQsImp0aSI6ImM0MjMxNjg5OGNhZDQzNDI4OWQyM2U3Nzc2MmQ0ZjAyIiwidXNlcl9pZCI6IjVkMjIyNzNjLWVhMGMtNGJjNS1iOGQ5LTg2MjhmNDMzNWRiYyJ9.4BOsRsBwrSih9mM-PIjkyZB7vhjx7mKAdnmvp9U_hVc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/internship_offers_details/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "internship_offers_details",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "internship-modify",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NDUwNDU5LCJpYXQiOjE3NjgzNjQwNTksImp0aSI6IjJkZDVmYzYyMDFmZDQyYTk5MTE0NmE3OTY0YjczMTM1IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.qk_ONwVhSrr8YPvlt0l_j5uCkpeVZrsOcIeepFQeBXY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n     \"internship_name\":\"linux\",\r\n     \"internship_description\":\"hey\",\r\n     \"technologies\":\"django\"\r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/modify_internship_offers/df3a7ad8-128e-44e9-85e4-e285f75012a4",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "modify_internship_offers",
+                "df3a7ad8-128e-44e9-85e4-e285f75012a4"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "internship-delete",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NDUwNDU5LCJpYXQiOjE3NjgzNjQwNTksImp0aSI6IjJkZDVmYzYyMDFmZDQyYTk5MTE0NmE3OTY0YjczMTM1IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.qk_ONwVhSrr8YPvlt0l_j5uCkpeVZrsOcIeepFQeBXY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n    \r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/delete_internship_offers/3116da8e-bf8e-4bde-a823-5227a862f851",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "delete_internship_offers",
+                "3116da8e-bf8e-4bde-a823-5227a862f851"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "application",
+      "item": [
+        {
+          "name": "apply-intenship",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NzIyMDY0LCJpYXQiOjE3Njg2MzU2NjQsImp0aSI6ImM0MjMxNjg5OGNhZDQzNDI4OWQyM2U3Nzc2MmQ0ZjAyIiwidXNlcl9pZCI6IjVkMjIyNzNjLWVhMGMtNGJjNS1iOGQ5LTg2MjhmNDMzNWRiYyJ9.4BOsRsBwrSih9mM-PIjkyZB7vhjx7mKAdnmvp9U_hVc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "resume",
+                  "type": "file",
+                  "uuid": "d4755903-bb50-4f3b-87e4-24722b1648ac",
+                  "src": "/D:/REACT JS.docx"
+                },
+                {
+                  "key": "student_id",
+                  "value": "5d22273c-ea0c-4bc5-b8d9-8628f4335dbc",
+                  "type": "text",
+                  "uuid": "ca950b1b-e7cb-4d1c-85ec-c3c7783d5fce"
+                },
+                {
+                  "key": "internship_offers_id",
+                  "value": "df3a7ad8-128e-44e9-85e4-e285f75012a4",
+                  "type": "text",
+                  "uuid": "a8d3efcc-296d-46fa-93c2-6faffb9704c9"
+                },
+                {
+                  "key": "education",
+                  "value": "UG",
+                  "type": "text",
+                  "uuid": "6894511f-3dda-46c9-bf4e-fa32fa68f8b2"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/apply_internship/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "apply_internship",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "view-application",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NTczMDg1LCJpYXQiOjE3Njg0ODY2ODUsImp0aSI6ImFkZjkxNTU5OTMyZDRhNTFiMGE4N2FhYzhjNzhjNjc0IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.YtC5WYr8rwELwn5Om3lrMJKFfzoCCM9IoqcDGR-E338",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "resume",
+                  "type": "file",
+                  "uuid": "d4755903-bb50-4f3b-87e4-24722b1648ac",
+                  "src": "postman-cloud:///1f0f12a3-b1bb-4f40-87ff-fc247bd5c0f7"
+                },
+                {
+                  "key": "student_id",
+                  "value": "99d30f85-02e5-41f2-9d91-21932c59802b",
+                  "type": "text",
+                  "uuid": "ca950b1b-e7cb-4d1c-85ec-c3c7783d5fce"
+                },
+                {
+                  "key": "internship_offers_id",
+                  "value": "5df84e5a-9b35-47f0-9d0b-decf4c6a61e4",
+                  "type": "text",
+                  "uuid": "a8d3efcc-296d-46fa-93c2-6faffb9704c9"
+                },
+                {
+                  "key": "education",
+                  "value": "UG",
+                  "type": "text",
+                  "uuid": "6894511f-3dda-46c9-bf4e-fa32fa68f8b2"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/view_applications/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "view_applications",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "modify-application",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NzIyNTI2LCJpYXQiOjE3Njg2MzYxMjYsImp0aSI6IjNhZDdjNDEwNWNmMzRiOGNiMzUwMGMzMGE0YTU4MWVkIiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.M_YfLecDzCaINgnfl1Sc_Tv_E1IPbe5HdS_GssrZpmU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "student_id",
+                  "value": "5d22273c-ea0c-4bc5-b8d9-8628f4335dbc",
+                  "type": "text",
+                  "uuid": "ca950b1b-e7cb-4d1c-85ec-c3c7783d5fce"
+                },
+                {
+                  "key": "internship_offers_id",
+                  "value": "df3a7ad8-128e-44e9-85e4-e285f75012a4",
+                  "type": "text",
+                  "uuid": "a8d3efcc-296d-46fa-93c2-6faffb9704c9"
+                },
+                {
+                  "key": "education",
+                  "value": "PG",
+                  "type": "text",
+                  "uuid": "6894511f-3dda-46c9-bf4e-fa32fa68f8b2"
+                },
+                {
+                  "key": "first_name",
+                  "value": "sayewd",
+                  "type": "text",
+                  "uuid": "507007da-fcb4-44a3-b00d-952447c6c36c",
+                  "disabled": true
+                },
+                {
+                  "key": "last_name",
+                  "value": "basha",
+                  "type": "text",
+                  "uuid": "092b382a-d71d-45db-a034-392d2ff7e0a0",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "Rejected",
+                  "type": "text",
+                  "uuid": "5bd8581e-2ed7-4062-b5e0-8f2cf43b7a23"
+                },
+                {
+                  "key": "resume",
+                  "type": "file",
+                  "uuid": "5f6056f3-ec74-4fbc-93d4-a827040e567b",
+                  "src": "/D:/REACT JS.docx"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/modify_application/7dc727f2-cecf-40ff-937b-76a721e6dabb",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "modify_application",
+                "7dc727f2-cecf-40ff-937b-76a721e6dabb"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete-application",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NTczMDg1LCJpYXQiOjE3Njg0ODY2ODUsImp0aSI6ImFkZjkxNTU5OTMyZDRhNTFiMGE4N2FhYzhjNzhjNjc0IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.YtC5WYr8rwELwn5Om3lrMJKFfzoCCM9IoqcDGR-E338",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/delete_application/4c016b49-e64e-4696-8b9c-ca1d0f25a71f",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "delete_application",
+                "4c016b49-e64e-4696-8b9c-ca1d0f25a71f"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "job-notification",
+      "item": [
+        {
+          "name": "add-job-notification",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NTczMDg1LCJpYXQiOjE3Njg0ODY2ODUsImp0aSI6ImFkZjkxNTU5OTMyZDRhNTFiMGE4N2FhYzhjNzhjNjc0IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.YtC5WYr8rwELwn5Om3lrMJKFfzoCCM9IoqcDGR-E338",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "company_logo",
+                  "type": "file",
+                  "uuid": "4f7f8a6c-7779-4b16-b282-0ab585b06770",
+                  "src": "postman-cloud:///1f0f0751-0fc5-4ea0-a132-2a4df5edc507"
+                },
+                {
+                  "key": "job_title",
+                  "value": "backend",
+                  "type": "text",
+                  "uuid": "ffb7a2ab-2190-4689-948d-bd1ba545bdd0"
+                },
+                {
+                  "key": "location",
+                  "value": "madanapalli",
+                  "type": "text",
+                  "uuid": "fe4be9a4-d5fa-465b-a73b-49fe5d66ea2d"
+                },
+                {
+                  "key": "company_name",
+                  "value": "vjiss",
+                  "type": "text",
+                  "uuid": "fe49774a-972d-4cc3-93a4-856e2f2a583e"
+                },
+                {
+                  "key": "job_description",
+                  "value": "backend and frondend",
+                  "type": "text",
+                  "uuid": "385f1a85-9af0-45db-8cf7-925a7ecb8bfa"
+                },
+                {
+                  "key": "requirements",
+                  "value": "project manager",
+                  "type": "text",
+                  "uuid": "b9108024-1398-467b-bad8-50e34d81e6cf"
+                },
+                {
+                  "key": "link ",
+                  "value": "https://chatgpt.com/c/6969cdd1-ac5c-8322-aea9-23d20b122d4e",
+                  "type": "text",
+                  "uuid": "7fc8e4d5-4574-4c71-a76e-456c84dd0427"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/add_job_notification/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "add_job_notification",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "job-notification-deatils",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NTczMDg1LCJpYXQiOjE3Njg0ODY2ODUsImp0aSI6ImFkZjkxNTU5OTMyZDRhNTFiMGE4N2FhYzhjNzhjNjc0IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.YtC5WYr8rwELwn5Om3lrMJKFfzoCCM9IoqcDGR-E338",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "company_logo",
+                  "type": "file",
+                  "uuid": "4f7f8a6c-7779-4b16-b282-0ab585b06770",
+                  "src": "postman-cloud:///1f0f0751-0fc5-4ea0-a132-2a4df5edc507"
+                },
+                {
+                  "key": "job_title",
+                  "value": "backend",
+                  "type": "text",
+                  "uuid": "ffb7a2ab-2190-4689-948d-bd1ba545bdd0"
+                },
+                {
+                  "key": "company_name",
+                  "value": "vjiss",
+                  "type": "text",
+                  "uuid": "fe49774a-972d-4cc3-93a4-856e2f2a583e"
+                },
+                {
+                  "key": "location",
+                  "value": "madanapalli",
+                  "type": "text",
+                  "uuid": "fe4be9a4-d5fa-465b-a73b-49fe5d66ea2d"
+                },
+                {
+                  "key": "job_description",
+                  "value": "backend and frondend",
+                  "type": "text",
+                  "uuid": "385f1a85-9af0-45db-8cf7-925a7ecb8bfa"
+                },
+                {
+                  "key": "requirements",
+                  "value": "project manager",
+                  "type": "text",
+                  "uuid": "b9108024-1398-467b-bad8-50e34d81e6cf"
+                },
+                {
+                  "key": "link ",
+                  "value": "https://chatgpt.com/c/6969cdd1-ac5c-8322-aea9-23d20b122d4e",
+                  "type": "text",
+                  "uuid": "7fc8e4d5-4574-4c71-a76e-456c84dd0427"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/job_notification_details/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "job_notification_details",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "modify-notification",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NTczMDg1LCJpYXQiOjE3Njg0ODY2ODUsImp0aSI6ImFkZjkxNTU5OTMyZDRhNTFiMGE4N2FhYzhjNzhjNjc0IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.YtC5WYr8rwELwn5Om3lrMJKFfzoCCM9IoqcDGR-E338",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "company_logo",
+                  "type": "file",
+                  "uuid": "f04d0385-5a37-4658-9672-97c3e07b9530",
+                  "src": "postman-cloud:///1f0f0751-0fc5-4ea0-a132-2a4df5edc507"
+                },
+                {
+                  "key": "job_title",
+                  "value": "python",
+                  "type": "text",
+                  "uuid": "1df57429-6092-4254-8f49-1a677850ec82"
+                },
+                {
+                  "key": "company_name",
+                  "value": "dfg",
+                  "type": "text",
+                  "uuid": "aef8a115-fde1-44ad-aead-02e1e85e8c0a"
+                },
+                {
+                  "key": "location",
+                  "value": "wrwf",
+                  "type": "text",
+                  "uuid": "5004009f-0753-497a-af90-089dadf6b409"
+                },
+                {
+                  "key": "job_description",
+                  "value": "adseff",
+                  "type": "text",
+                  "uuid": "bd269d28-38c8-4790-b3f9-dc53959f6df4"
+                },
+                {
+                  "key": "requirements",
+                  "value": "wfee",
+                  "type": "text",
+                  "uuid": "6f78adbd-01a2-4b56-adde-9704ec062428"
+                },
+                {
+                  "key": "link",
+                  "value": "https://chatgpt.com/c/6969cdd1-ac5c-8322-aea9-23d20b122d4e",
+                  "type": "text",
+                  "uuid": "29254a92-c74b-429a-bb4e-7948d3baa6fa"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/modify_job_notification/91bd3630-7e87-4705-ba78-d86ffaa90141",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "modify_job_notification",
+                "91bd3630-7e87-4705-ba78-d86ffaa90141"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete-notification",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "trainer",
+      "item": [
+        {
+          "name": "add-trainer",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NTczMDg1LCJpYXQiOjE3Njg0ODY2ODUsImp0aSI6ImFkZjkxNTU5OTMyZDRhNTFiMGE4N2FhYzhjNzhjNjc0IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.YtC5WYr8rwELwn5Om3lrMJKFfzoCCM9IoqcDGR-E338",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "trainer_title",
+                  "value": "python",
+                  "type": "text",
+                  "uuid": "80436cbe-0d28-4ceb-b844-fee42bf3e6ad"
+                },
+                {
+                  "key": "trainer_name",
+                  "value": "basha",
+                  "type": "text",
+                  "uuid": "89078390-e612-4ba5-8b7b-11c4a006737a"
+                },
+                {
+                  "key": "trainer_image",
+                  "type": "file",
+                  "uuid": "1ca0cbbb-384c-4152-946c-11bac8aff4b1",
+                  "src": "postman-cloud:///1f0f0751-0fc5-4ea0-a132-2a4df5edc507"
+                },
+                {
+                  "key": "trainer_bio",
+                  "value": "btech",
+                  "type": "text",
+                  "uuid": "6d079916-f070-4080-9eb6-2f8a50ad0d1e"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/add_trainer/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "add_trainer",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "trainer-details",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NTczMDg1LCJpYXQiOjE3Njg0ODY2ODUsImp0aSI6ImFkZjkxNTU5OTMyZDRhNTFiMGE4N2FhYzhjNzhjNjc0IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.YtC5WYr8rwELwn5Om3lrMJKFfzoCCM9IoqcDGR-E338",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "trainer_title",
+                  "value": "python",
+                  "type": "text",
+                  "uuid": "80436cbe-0d28-4ceb-b844-fee42bf3e6ad"
+                },
+                {
+                  "key": "trainer_name",
+                  "value": "basha",
+                  "type": "text",
+                  "uuid": "89078390-e612-4ba5-8b7b-11c4a006737a"
+                },
+                {
+                  "key": "trainer_image",
+                  "type": "file",
+                  "uuid": "1ca0cbbb-384c-4152-946c-11bac8aff4b1",
+                  "src": "postman-cloud:///1f0f0751-0fc5-4ea0-a132-2a4df5edc507"
+                },
+                {
+                  "key": "trainer_bio",
+                  "value": "btech",
+                  "type": "text",
+                  "uuid": "6d079916-f070-4080-9eb6-2f8a50ad0d1e"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/trainer_details/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "trainer_details",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "modify-trainer",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NTczMDg1LCJpYXQiOjE3Njg0ODY2ODUsImp0aSI6ImFkZjkxNTU5OTMyZDRhNTFiMGE4N2FhYzhjNzhjNjc0IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.YtC5WYr8rwELwn5Om3lrMJKFfzoCCM9IoqcDGR-E338",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "trainer_title",
+                  "value": "python",
+                  "type": "text",
+                  "uuid": "80436cbe-0d28-4ceb-b844-fee42bf3e6ad"
+                },
+                {
+                  "key": "trainer_name",
+                  "value": "patan",
+                  "type": "text",
+                  "uuid": "89078390-e612-4ba5-8b7b-11c4a006737a"
+                },
+                {
+                  "key": "trainer_image",
+                  "type": "file",
+                  "uuid": "1ca0cbbb-384c-4152-946c-11bac8aff4b1",
+                  "src": "postman-cloud:///1f0f0751-0fc5-4ea0-a132-2a4df5edc507"
+                },
+                {
+                  "key": "trainer_bio",
+                  "value": "btech",
+                  "type": "text",
+                  "uuid": "6d079916-f070-4080-9eb6-2f8a50ad0d1e"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/modify_trainer/7b25ca25-e4a5-4136-9a13-1ae8eddc1067",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "modify_trainer",
+                "7b25ca25-e4a5-4136-9a13-1ae8eddc1067"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete-trainer",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NTczMDg1LCJpYXQiOjE3Njg0ODY2ODUsImp0aSI6ImFkZjkxNTU5OTMyZDRhNTFiMGE4N2FhYzhjNzhjNjc0IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.YtC5WYr8rwELwn5Om3lrMJKFfzoCCM9IoqcDGR-E338",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "trainer_title",
+                  "value": "python",
+                  "type": "text",
+                  "uuid": "80436cbe-0d28-4ceb-b844-fee42bf3e6ad"
+                },
+                {
+                  "key": "trainer_name",
+                  "value": "basha",
+                  "type": "text",
+                  "uuid": "89078390-e612-4ba5-8b7b-11c4a006737a"
+                },
+                {
+                  "key": "trainer_image",
+                  "type": "file",
+                  "uuid": "1ca0cbbb-384c-4152-946c-11bac8aff4b1",
+                  "src": "postman-cloud:///1f0f0751-0fc5-4ea0-a132-2a4df5edc507"
+                },
+                {
+                  "key": "trainer_bio",
+                  "value": "btech",
+                  "type": "text",
+                  "uuid": "6d079916-f070-4080-9eb6-2f8a50ad0d1e"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/delete_trainer/7b25ca25-e4a5-4136-9a13-1ae8eddc1067",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "delete_trainer",
+                "7b25ca25-e4a5-4136-9a13-1ae8eddc1067"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "company-info",
+      "item": [
+        {
+          "name": "add-info",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "company-details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/company_info_details/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "company_info_details",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "modify-company-info",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NTczMDg1LCJpYXQiOjE3Njg0ODY2ODUsImp0aSI6ImFkZjkxNTU5OTMyZDRhNTFiMGE4N2FhYzhjNzhjNjc0IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.YtC5WYr8rwELwn5Om3lrMJKFfzoCCM9IoqcDGR-E338",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "company_name",
+                  "value": "vjiss",
+                  "type": "text",
+                  "uuid": "43372f6c-d4d7-412d-b7e9-1958cf3f121e"
+                },
+                {
+                  "key": "company_logo",
+                  "type": "file",
+                  "uuid": "23fcb9a4-82f2-40da-9d1a-6d757755167d",
+                  "src": "postman-cloud:///1f0f0751-0fc5-4ea0-a132-2a4df5edc507"
+                },
+                {
+                  "key": "company_description",
+                  "value": "VJ Innovative Software Solutions Private Limited is a Private Limited Company providing industry-ready software training, customized digital solutions, and customer support services. The company specializes in software education, e-commerce software development, and BPO services.\\r\\n\\r\\nIt offers practical training programs in Python, Java, Web Development, Full Stack, AI/ML, Data Science, and Cloud Computing through classroom, online, and workshop-based learning, helping students and professionals gain job-ready skills.\\r\\n\\r\\nFor businesses, the company develops customized websites, mobile apps, backend systems, inventory and order management tools, payment integrations, CRM solutions, chatbots, and automation tools to support e-commerce operations. It also delivers multilingual customer support services including call centre's, live chat, email, and ticketing solutions. The company serves students, professionals, retail owners, e-commerce firms, and corporate clients, focusing on innovation, quality, and growth through technology.",
+                  "type": "text",
+                  "uuid": "87fbce63-413a-4991-a8ba-d7f3df937fcc"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/modify_company_info/aac73c39-2815-4f72-81a6-2a7a5f06a301",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "modify_company_info",
+                "aac73c39-2815-4f72-81a6-2a7a5f06a301"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete-company-info",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NTczMDg1LCJpYXQiOjE3Njg0ODY2ODUsImp0aSI6ImFkZjkxNTU5OTMyZDRhNTFiMGE4N2FhYzhjNzhjNjc0IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.YtC5WYr8rwELwn5Om3lrMJKFfzoCCM9IoqcDGR-E338",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "company_name",
+                  "value": "vjiss",
+                  "type": "text",
+                  "uuid": "43372f6c-d4d7-412d-b7e9-1958cf3f121e"
+                },
+                {
+                  "key": "company_logo",
+                  "type": "file",
+                  "uuid": "23fcb9a4-82f2-40da-9d1a-6d757755167d",
+                  "src": "postman-cloud:///1f0f0751-0fc5-4ea0-a132-2a4df5edc507"
+                },
+                {
+                  "key": "company_description",
+                  "value": "VJ Innovative Software Solutions Private Limited is a Private Limited Company providing industry-ready software training, customized digital solutions, and customer support services. The company specializes in software education, e-commerce software development, and BPO services.\\r\\n\\r\\nIt offers practical training programs in Python, Java, Web Development, Full Stack, AI/ML, Data Science, and Cloud Computing through classroom, online, and workshop-based learning, helping students and professionals gain job-ready skills.\\r\\n\\r\\nFor businesses, the company develops customized websites, mobile apps, backend systems, inventory and order management tools, payment integrations, CRM solutions, chatbots, and automation tools to support e-commerce operations. It also delivers multilingual customer support services including call centre's, live chat, email, and ticketing solutions. The company serves students, professionals, retail owners, e-commerce firms, and corporate clients, focusing on innovation, quality, and growth through technology.",
+                  "type": "text",
+                  "uuid": "87fbce63-413a-4991-a8ba-d7f3df937fcc"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/delete_company_info/aac73c39-2815-4f72-81a6-2a7a5f06a301",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "delete_company_info",
+                "aac73c39-2815-4f72-81a6-2a7a5f06a301"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "new-batch",
+      "item": [
+        {
+          "name": "new-batch",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NTczMDg1LCJpYXQiOjE3Njg0ODY2ODUsImp0aSI6ImFkZjkxNTU5OTMyZDRhNTFiMGE4N2FhYzhjNzhjNjc0IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.YtC5WYr8rwELwn5Om3lrMJKFfzoCCM9IoqcDGR-E338",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "trainer_id",
+                  "value": "06e2edd7-6165-4076-81fb-34d8b388b065",
+                  "type": "text",
+                  "uuid": "2191619a-5bab-4f01-8103-3492f6feebbe"
+                },
+                {
+                  "key": "course_id",
+                  "value": "e3c7af15-14f7-4d30-83ae-6023519f93c6",
+                  "type": "text",
+                  "uuid": "1852940c-4aa0-47fe-a98f-95e50733055a"
+                },
+                {
+                  "key": "quafication_requirements",
+                  "value": "UP",
+                  "type": "text",
+                  "uuid": "8045af1b-59d2-4c53-b803-fb2e2ca99e5d"
+                },
+                {
+                  "key": "course_duration",
+                  "value": "3",
+                  "type": "text",
+                  "uuid": "b3d21490-5dcb-4c99-b3e4-3d23fc7c1a4f"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/newbatch/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "newbatch",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "batch-details",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NjMyNDU1LCJpYXQiOjE3Njg1NDYwNTUsImp0aSI6IjhkYzVjNzhkODhhMDQ2NTk4ZDc5MTBhZjkwMTE0NDIxIiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.Y_Zy0HRIVtXCA44nYBawCx-pGMABb03SbkNUndwkDmA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/batch_details/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "batch_details",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "modify-batch",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NjMyNDU1LCJpYXQiOjE3Njg1NDYwNTUsImp0aSI6IjhkYzVjNzhkODhhMDQ2NTk4ZDc5MTBhZjkwMTE0NDIxIiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.Y_Zy0HRIVtXCA44nYBawCx-pGMABb03SbkNUndwkDmA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "trainer_id",
+                  "value": "06e2edd7-6165-4076-81fb-34d8b388b065",
+                  "type": "text",
+                  "uuid": "060e4709-fa55-472b-9a94-ec67f5dc2c93"
+                },
+                {
+                  "key": "course_duration",
+                  "value": "5",
+                  "type": "text",
+                  "uuid": "d19a81c5-ee10-4c9d-9cdc-0e36cf75a114"
+                },
+                {
+                  "key": "quafication_requirements",
+                  "value": "UG",
+                  "type": "text",
+                  "uuid": "9e9f9876-6788-401a-aeed-140758622066"
+                },
+                {
+                  "key": "course_id",
+                  "value": "e3c7af15-14f7-4d30-83ae-6023519f93c6",
+                  "type": "text",
+                  "uuid": "bd7176fa-41df-4825-86ee-4dbb56bb4f53"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/update_batch/d767417e-2fca-4fcb-90f6-2ef435aae88f",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "update_batch",
+                "d767417e-2fca-4fcb-90f6-2ef435aae88f"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete-batch",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NTczMDg1LCJpYXQiOjE3Njg0ODY2ODUsImp0aSI6ImFkZjkxNTU5OTMyZDRhNTFiMGE4N2FhYzhjNzhjNjc0IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.YtC5WYr8rwELwn5Om3lrMJKFfzoCCM9IoqcDGR-E338",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "trainer_id",
+                  "value": "06e2edd7-6165-4076-81fb-34d8b388b065",
+                  "type": "text",
+                  "uuid": "2191619a-5bab-4f01-8103-3492f6feebbe"
+                },
+                {
+                  "key": "course_id",
+                  "value": "e3c7af15-14f7-4d30-83ae-6023519f93c6",
+                  "type": "text",
+                  "uuid": "1852940c-4aa0-47fe-a98f-95e50733055a"
+                },
+                {
+                  "key": "quafication_requirements",
+                  "value": "UP",
+                  "type": "text",
+                  "uuid": "8045af1b-59d2-4c53-b803-fb2e2ca99e5d"
+                },
+                {
+                  "key": "course_duration",
+                  "value": "3",
+                  "type": "text",
+                  "uuid": "b3d21490-5dcb-4c99-b3e4-3d23fc7c1a4f"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/delete_batch/d767417e-2fca-4fcb-90f6-2ef435aae88f",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "delete_batch",
+                "d767417e-2fca-4fcb-90f6-2ef435aae88f"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "enroll",
+      "item": [
+        {
+          "name": "student-enrollment",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NTczMDg1LCJpYXQiOjE3Njg0ODY2ODUsImp0aSI6ImFkZjkxNTU5OTMyZDRhNTFiMGE4N2FhYzhjNzhjNjc0IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.YtC5WYr8rwELwn5Om3lrMJKFfzoCCM9IoqcDGR-E338",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "course_id",
+                  "value": "eca1b0fb-0849-4243-8727-0f8f851bd083",
+                  "type": "text",
+                  "uuid": "39f99dbb-0379-4abf-834e-4d4b6fa07a7c"
+                },
+                {
+                  "key": "student_id",
+                  "value": "6a174326-a401-4d8c-826a-28d23f53e1a7",
+                  "type": "text",
+                  "uuid": "da2180ce-d153-498e-8419-d1447cf493be"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/student_enrollment/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "student_enrollment",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "enrollment-details",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NTYzMDI1LCJpYXQiOjE3Njg1NTk0MjUsImp0aSI6IjJjNDYzNDljNWQzZDQ2ZmFhMDk1YTFjYjg4MzE2NzQ2IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.SbgO0a5zVvPyJhY7qpAKogqOn6mVIdnCjkYDcwqr4VA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/student_enrollment_details/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "student_enrollment_details",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "modify-enrollment",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NTYzMDI1LCJpYXQiOjE3Njg1NTk0MjUsImp0aSI6IjJjNDYzNDljNWQzZDQ2ZmFhMDk1YTFjYjg4MzE2NzQ2IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.SbgO0a5zVvPyJhY7qpAKogqOn6mVIdnCjkYDcwqr4VA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "student_id",
+                  "value": "6a174326-a401-4d8c-826a-28d23f53e1a7",
+                  "type": "text",
+                  "uuid": "8d95f8eb-7caf-4a30-94bc-48e83e58be52"
+                },
+                {
+                  "key": "course_id",
+                  "value": "eca1b0fb-0849-4243-8727-0f8f851bd083",
+                  "type": "text",
+                  "uuid": "135cee05-3cc6-4dc1-9d39-3b4437048114"
+                },
+                {
+                  "key": "status",
+                  "value": "Intrested",
+                  "type": "text",
+                  "uuid": "dc82665c-9774-453a-aa97-dc9ada3b33fd"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/modify_student_enrollment/249ffc35-c651-48c1-a6b8-dfbe08868e0c?student_id=6a174326-a401-4d8c-826a-28d23f53e1a7&course_id=eca1b0fb-0849-4243-8727-0f8f851bd083",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "modify_student_enrollment",
+                "249ffc35-c651-48c1-a6b8-dfbe08868e0c"
+              ],
+              "query": [
+                {
+                  "key": "student_id",
+                  "value": "6a174326-a401-4d8c-826a-28d23f53e1a7",
+                  "type": "text"
+                },
+                {
+                  "key": "course_id",
+                  "value": "eca1b0fb-0849-4243-8727-0f8f851bd083",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete-enrollment",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4NTYzMDI1LCJpYXQiOjE3Njg1NTk0MjUsImp0aSI6IjJjNDYzNDljNWQzZDQ2ZmFhMDk1YTFjYjg4MzE2NzQ2IiwidXNlcl9pZCI6Ijk5ZDMwZjg1LTAyZTUtNDFmMi05ZDkxLTIxOTMyYzU5ODAyYiJ9.SbgO0a5zVvPyJhY7qpAKogqOn6mVIdnCjkYDcwqr4VA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "student_id",
+                  "value": "6a174326-a401-4d8c-826a-28d23f53e1a7",
+                  "type": "text",
+                  "uuid": "8d95f8eb-7caf-4a30-94bc-48e83e58be52"
+                },
+                {
+                  "key": "course_id",
+                  "value": "eca1b0fb-0849-4243-8727-0f8f851bd083",
+                  "type": "text",
+                  "uuid": "135cee05-3cc6-4dc1-9d39-3b4437048114"
+                },
+                {
+                  "key": "status",
+                  "value": "Intrested",
+                  "type": "text",
+                  "uuid": "dc82665c-9774-453a-aa97-dc9ada3b33fd"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/VJISS/delete_student_enrollment/249ffc35-c651-48c1-a6b8-dfbe08868e0c",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "VJISS",
+                "delete_student_enrollment",
+                "249ffc35-c651-48c1-a6b8-dfbe08868e0c"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
