@@ -85,6 +85,7 @@ INSTALLED_APPS = [
     'rest_framework', # REST FRAMEWORKS,
     'corsheaders',#   corsheaders 'pip install djano-cors-headers'
     'rest_framework_simplejwt' # Jwt tokens 
+    "VJISS_APP.apps.VjissAppConfig",
 ]
 
 
