@@ -185,6 +185,7 @@ EMAIL_HOST_PASSWORD = os.environ.get("BREVO_SMTP_KEY")
 
 DEFAULT_FROM_EMAIL = "no-reply@vjinnovative.co.in"
 
+EMAIL_TIMEOUT = 10
 
 
 # Cache Configuration
