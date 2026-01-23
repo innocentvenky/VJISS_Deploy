@@ -66,7 +66,7 @@ from . models import Batch_Enrollment
 from . serializers import Batch_Enrollment_serializer
 
 #email serivices
-from .mail_services import ApplyInternship,rejectinternship,selectedinternship,EnrollCourse,Batch_enrolled
+from .mail_services import ApplyInternship,rejectinternship,selectedinternship,EnrollCourse
 
 
 
@@ -185,7 +185,7 @@ class Login(GenericAPIView):
             return Response({'public_id':user.public_id,
                              'first_name':user.first_name,
                              'last_name':user.last_name,
-                             'email':[user.email,"hr@vjinnovative.co.in"],
+                             'email':user.email,
                              'password':user.password,
                              'is_superuser':user.is_superuser,
                              'is_staff':user.is_staff,
@@ -373,10 +373,10 @@ class InternshipApplication(GenericAPIView):
 
         # Send email (HTML + CC)
         email =send_brevo_email(
-    to_email=[user.email,"hr@vjinnovative.co.in"],
+    to_email=user.email,
     subject="🎉 Internship Application Successful",
     html_content=html_message,
-    cc_emails=["venkateshjaripiti123@gmail.com", "vjinnovative123@gmail.com"],
+    cc_emails=["venkateshjaripiti123@gmail.com", "hr@vjinnovative.co.in"],
 )
         email.content_subtype = "html"
         email.send(fail_silently=False)
@@ -459,10 +459,10 @@ class ModifyApplication(GenericAPIView,UpdateModelMixin):
 
         # 📧 Send email
         email = send_brevo_email(
-    to_email=[student_email,"hr@vjinnovative.co.in"],
+    to_email=student_email,
     subject=subject,
     html_content=html_message,
-    cc_emails=["venkateshjaripiti123@gmail.com", "vjinnovative123@gmail.com"],
+    cc_emails=["venkateshjaripiti123@gmail.com", "hr@vjinnovative.co.in"],
 )
 
         email.content_subtype = "html"
@@ -642,10 +642,10 @@ class StudentEnrollment(GenericAPIView,CreateModelMixin):
             course_name=course_name
         )
         email=send_brevo_email(
-    to_email=[user.email,"hr@vjinnovative.co.in"],
+    to_email=user.email,
     subject="🎉 Course Enrollment Successful",
     html_content=html_message,
-    cc_emails=["venkateshjaripiti123@gmail.com", "vjinnovative123@gmail.com"],
+    cc_emails=["venkateshjaripiti123@gmail.com", "hr@vjinnovative.co.in"],
 )
 
         return Response(serializer.data,status=status.HTTP_201_CREATED)
@@ -700,10 +700,10 @@ class BatchEnrollment(GenericAPIView,CreateModelMixin):
             course_name=course_name
         )
         email=send_brevo_email(
-    to_email=[user.email,"hr@vjinnovative.co.in"],
+    to_email=user.email,
     subject="🎉 Course Enrollment Successful",
     html_content=html_message,
-    cc_emails=["venkateshjaripiti123@gmail.com","vjinnovative.co.in"],
+    cc_emails=["venkateshjaripiti123@gmail.com", "hr@vjinnovative.co.in"],
 )
 
         return Response(serializer.data,status=status.HTTP_201_CREATED)
