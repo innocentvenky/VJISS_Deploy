@@ -11,7 +11,7 @@ from .views import AddCompanyInfo,CompanyInfoDetails,CompanyInfoModify,CompanyIn
 from . mail_services.opt import SendOtp
 from . views import NewBacthAdding,BacthDetails,BatchUpdate,Batchdelete
 from . views import StudentEnrollmentView,StudentEnrollment,StudentEnrollmentModify,StudentEnrollmentDelete
-from . views import BatchEnrollment
+from . views import BatchEnrollment,BatchEnrollmentView,BatchEnrollmentModify,BatchEnrollmentDelete
 
 # endpoints URLS
 urlpatterns=[
@@ -76,6 +76,8 @@ urlpatterns=[
     path("VJISS/delete_student_enrollment/<str:pk>",StudentEnrollmentDelete.as_view()),
 
     path("VJISS/batch_enrollment/",BatchEnrollment.as_view()),
-    
+    path("VJISS/batch_enrollment_details/",BatchEnrollmentView.as_view()),
+    path("VJISS/modify_batch_enrollment/<str:pk>",BatchEnrollmentModify.as_view()),
+    path("VJISS/delete_batch_enrollment/<str:pk>",BatchEnrollmentDelete.as_view()),
 ]
         

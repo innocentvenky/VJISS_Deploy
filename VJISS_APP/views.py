@@ -66,7 +66,7 @@ from . models import Batch_Enrollment
 from . serializers import Batch_Enrollment_serializer
 
 #email serivices
-from .mail_services import ApplyInternship,rejectinternship,selectedinternship,EnrollCourse
+from .mail_services import ApplyInternship,rejectinternship,selectedinternship,EnrollCourse,Batch_enrolled
 
 
 
@@ -376,7 +376,7 @@ class InternshipApplication(GenericAPIView):
     to_email=user.email,
     subject="🎉 Internship Application Successful",
     html_content=html_message,
-    [user.email,"hr@vjinnovative.co.in","vjinnovative123@gmail.com"],,
+    cc_email=["hr@vjinnovative.co.in","vjinnovative123@gmail.com","venkateshjaripiti123@gmail.com"],
 )
         email.content_subtype = "html"
         email.send(fail_silently=False)
@@ -462,7 +462,7 @@ class ModifyApplication(GenericAPIView,UpdateModelMixin):
     to_email=student_email,
     subject=subject,
     html_content=html_message,
-    [user.email,"hr@vjinnovative.co.in","vjinnovative123@gmail.com"],,
+    cc_email=["hr@vjinnovative.co.in","vjinnovative123@gmail.com","venkateshjaripiti123@gmail.com"],
 )
 
         email.content_subtype = "html"
@@ -645,7 +645,7 @@ class StudentEnrollment(GenericAPIView,CreateModelMixin):
     to_email=user.email,
     subject="🎉 Course Enrollment Successful",
     html_content=html_message,
-    [user.email,"hr@vjinnovative.co.in","vjinnovative123@gmail.com"],,
+    cc_email=["hr@vjinnovative.co.in","vjinnovative123@gmail.com","venkateshjaripiti123@gmail.com"],
 )
 
         return Response(serializer.data,status=status.HTTP_201_CREATED)
@@ -703,7 +703,33 @@ class BatchEnrollment(GenericAPIView,CreateModelMixin):
     to_email=user.email,
     subject="🎉 Course Enrollment Successful",
     html_content=html_message,
-    [user.email,"hr@vjinnovative.co.in","vjinnovative123@gmail.com"],,
+    cc_email=["hr@vjinnovative.co.in","vjinnovative123@gmail.com","venkateshjaripiti123@gmail.com"],
 )
 
         return Response(serializer.data,status=status.HTTP_201_CREATED)
+    
+class BatchEnrollmentView(GenericAPIView,ListModelMixin):
+    serializer_class=Batch_Enrollment_serializer
+    permission_classes=[IsAuthenticated]
+    def get_queryset(self):
+        if self.request.user.is_superuser or self.request.user.is_staff:
+            return Batch_Enrollment.objects.select_related('student','batch').order_by('-enrollment_date')
+        print("Logged in email:", self.request.user.email)
+        return Batch_Enrollment.objects.select_related('student','batch').filter(student__email=self.request.user.email).order_by('-enrollment_date')
+    def get(self,request,*args,**kwargs):
+        return self.list(request,*args,**kwargs)
+class BatchEnrollmentModify(GenericAPIView,UpdateModelMixin):
+    serializer_class=Batch_Enrollment_serializer
+    queryset=Batch_Enrollment.objects.all()
+    permission_classes=[IsAdminUser,DjangoModelPermissions,IsAuthenticated]
+    def put(self,request,*args,**kwargs):
+        return self.update(request,*args,**kwargs)
+    def patch(self,request,*args,**kwargs):
+        return self.update(request,*args,**kwargs)
+class BatchEnrollmentDelete(GenericAPIView,DestroyModelMixin):
+    serializer_class=Batch_Enrollment_serializer
+    queryset=Batch_Enrollment.objects.all()
+    permission_classes=[IsAdminUser,DjangoModelPermissions]
+    def delete(self,request,*args,**kwargs):
+        self.destroy(request,*args,**kwargs)
+        return Response({'message':"Deleted Successfully"},status=status.HTTP_204_NO_CONTENT)
