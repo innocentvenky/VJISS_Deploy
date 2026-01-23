@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 import os
-import cloudinary
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,8 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-7ssr0x=&dwnqkx8vgfo&0#q^g8utes%=rr)a4i@mtt+x$l=wy*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", "False") == "True"
-
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -44,8 +43,7 @@ APPEND_SLASH = False
 # Application definition
 
 INSTALLED_APPS = [
-    'cloudinary',
-    'cloudinary_storage', 
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -169,60 +167,21 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+MEDIA_URL='/media/'
+MEDIA_ROOT=BASE_DIR / 'media'  
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 # Email Configuration
-# Email Configuration (Brevo SMTP)
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp-relay.brevo.com"
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER = os.environ.get("BREVO_SMTP_USER")
-EMAIL_HOST_PASSWORD = os.environ.get("BREVO_SMTP_KEY")
-
-DEFAULT_FROM_EMAIL = "no-reply@vjinnovative.co.in"
-
-EMAIL_TIMEOUT = 10
-
-
-
-
-
-
-
-# Cloudinary media
-CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": os.getenv("CLOUDINARY_CLOUD_NAME"),
-    "API_KEY": os.getenv("CLOUDINARY_API_KEY"),
-    "API_SECRET": os.getenv("CLOUDINARY_API_SECRET"),
-}
-
-# Django 6 storage system
-STORAGES = {
-    "default": {
-        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
-    },
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
-
-# 👇 REQUIRED for django-cloudinary-storage compatibility
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
-
-
-
-print("CLOUDINARY CHECK:",
-      os.getenv("CLOUDINARY_CLOUD_NAME"),
-      os.getenv("CLOUDINARY_API_KEY"),
-      bool(os.getenv("CLOUDINARY_API_SECRET")))
-
-
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
 # Cache Configuration
@@ -233,5 +192,3 @@ CACHES = {
     }
 }
 
-from django.core.files.storage import default_storage
-print(default_storage.__class__)
