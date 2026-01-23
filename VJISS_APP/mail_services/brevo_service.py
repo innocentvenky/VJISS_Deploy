@@ -18,22 +18,26 @@ def send_brevo_email(
         sib_api_v3_sdk.ApiClient(configuration)
     )
 
-    email_data = sib_api_v3_sdk.SendSmtpEmail(
-        to=[{"email": to_email}],
-        sender={
+    # ✅ Build payload manually
+    payload = {
+        "to": [{"email": to_email}],
+        "sender": {
             "email": sender_email,
-            "name": sender_name
+            "name": sender_name,
         },
-        subject=subject,
-        html_content=html_content,
-        cc=[{"email": e} for e in (cc_emails or [])],
-
-        # 🔑 THIS IS THE IMPORTANT PART
-        tags=["otp", "transactional"],
-        headers={
+        "subject": subject,
+        "htmlContent": html_content,
+        "tags": ["otp", "transactional"],
+        "headers": {
             "X-Mailin-custom": "transactional"
         },
-    )
+    }
+
+    # ✅ ADD cc ONLY IF PRESENT
+    if cc_emails:
+        payload["cc"] = [{"email": e} for e in cc_emails]
+
+    email_data = sib_api_v3_sdk.SendSmtpEmail(**payload)
 
     try:
         api_instance.send_transac_email(email_data)
