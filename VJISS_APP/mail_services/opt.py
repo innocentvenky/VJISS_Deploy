@@ -21,11 +21,6 @@ class SendOtp(APIView):
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        if not Create_User.objects.filter(email=email).exists():
-            return Response(
-                {"error": "User not found"},
-                status=status.HTTP_404_NOT_FOUND
-            )
 
         otp = self.generate_otp()
 
