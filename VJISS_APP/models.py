@@ -4,6 +4,7 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager, Group, Permission
 from django.core.validators import RegexValidator
+from cloudinary.models import CloudinaryField
 
 class UserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -67,7 +68,7 @@ class Create_User(AbstractBaseUser, PermissionsMixin):
 class Courses_Model(models.Model):
     course_id=models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
     course_name=models.CharField(max_length=100)
-    course_logo=models.ImageField(upload_to='course_logos/')
+    course_logo=CloudinaryField('course_logo',folder="course_logos")
     course_duration=models.CharField(max_length=50)
     course_fee=models.IntegerField()
     course_description=models.TextField()
@@ -104,7 +105,7 @@ class Apply_Internship(models.Model):
     internship_offers=models.ForeignKey(InternshipOffers,on_delete=models.CASCADE,related_name='internship_offers')
     education_choices=[('Diploma', 'Diploma'),('UG', 'Under Graduate'),('PG', 'Post Graduate'),('PhD', 'PhD'),]
     education=models.CharField(max_length=200,choices=education_choices)
-    resume=models.FileField(upload_to='resumes/')
+    resume=CloudinaryField('resumes',resource_type='raw',folder='resume')
     applied_on=models.DateField(auto_now_add=True)
     status_choices=[('Pending','Pending'),('Accepted','Accepted'),('Rejected','Rejected')]
     status=models.CharField(max_length=20,choices=status_choices,default='Pending')
@@ -115,7 +116,7 @@ class Apply_Internship(models.Model):
 #job notifications model
 class Job_Notifications(models.Model):
     notification_id=models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
-    company_logo=models.ImageField(upload_to='company_logos/')
+    company_logo=CloudinaryField('company_logo',folder='company_logos')
     job_title=models.CharField(max_length=200)
     company_name=models.CharField(max_length=200)
     location=models.CharField(max_length=200)
@@ -132,14 +133,14 @@ class About_Trainers(models.Model):
     trainer_id=models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
     trainer_title=models.CharField(max_length=200)
     trainer_name=models.CharField(max_length=200)
-    trainer_image=models.ImageField(upload_to='trainer_images/')
+    trainer_image=CloudinaryField('trainer_image',folder="trainer_images")
     trainer_bio=models.TextField()
     def __str__(self):
         return f'{self.trainer_name}\t({self.trainer_id}) '
 class About_Company(models.Model):
     company_id=models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
     company_name=models.CharField(max_length=200)
-    company_logo=models.ImageField(upload_to='company_logos/')
+    company_logo=CloudinaryField('company_logo',folder="company_logos")
     company_description=models.TextField()
     office_address=models.TextField()
     contact_email=models.EmailField(max_length=200)   

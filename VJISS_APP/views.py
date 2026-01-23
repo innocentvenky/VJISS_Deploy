@@ -13,7 +13,6 @@ from django.contrib.auth import login
 from django.utils.timezone import localtime
 from .utils import get_tokens_for_user
 
-from rest_framework.parsers import MultiPartParser, FormParser
 from . serializers import Course_serializer,CouresWithSyllabus_serializer
 from . models import Courses_Model
 from rest_framework.permissions import IsAuthenticated,IsAdminUser,DjangoModelPermissions
@@ -200,7 +199,7 @@ class AddCourse(GenericAPIView,CreateModelMixin):
     queryset=Courses_Model.objects.all()
     serializer_class=Course_serializer
     permission_classes=[IsAdminUser,DjangoModelPermissions]
-    parser_classes = (MultiPartParser, FormParser)
+   
     def post(self,request,*args,**kwargs):
         return self.create(request,*args,**kwargs)
 
@@ -222,7 +221,11 @@ class Course_particular_details(GenericAPIView,RetrieveModelMixin):
         return self.retrieve(request,*args,**kwargs)
 
 
-   
+
+
+
+
+    
 #modifiy
 
 class Course_modify(GenericAPIView,UpdateModelMixin):
@@ -342,7 +345,7 @@ class InternshipOffers_delete(GenericAPIView,DestroyModelMixin):
 class InternshipApplication(GenericAPIView):
     serializer_class = Apply_Internship_serializer
     permission_classes = [IsAuthenticated]
-    parser_classes = (MultiPartParser, FormParser)
+
     def post(self, request, *args, **kwargs):
         # Validate request data
         serializer = self.get_serializer(
@@ -488,7 +491,6 @@ class AddJobNotification(GenericAPIView,CreateModelMixin):
     queryset=Job_Notifications.objects.all()
     serializer_class=Job_Notifications_serializer
     permission_classes=[IsAdminUser,DjangoModelPermissions]
-    parser_classes = (MultiPartParser, FormParser)
     def post(self,request,*args,**kwargs):
         return self.create(request,*args,**kwargs)
     
@@ -523,7 +525,6 @@ class AddTrainers(GenericAPIView,CreateModelMixin):
     queryset=About_Trainers.objects.all()
     serializer_class=About_Trainers_serializer
     permission_classes=[IsAdminUser,DjangoModelPermissions]
-    parser_classes = (MultiPartParser, FormParser)
     def post(self,request,*args,**kwargs):
         return self.create(request,*args,**kwargs)
     
@@ -556,7 +557,6 @@ class AddCompanyInfo(GenericAPIView,CreateModelMixin):
     queryset=About_Company.objects.all()
     serializer_class=About_Company_serializer
     permission_classes=[IsAdminUser,DjangoModelPermissions]
-    parser_classes = (MultiPartParser, FormParser)
     def post(self,request,*args,**kwargs):
         return self.create(request,*args,**kwargs)
     

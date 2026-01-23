@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 import os
-
+import cloudinary
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -53,7 +53,9 @@ INSTALLED_APPS = [
     'VJISS_APP',  # YOU APPLICATION
     'rest_framework', # REST FRAMEWORKS,
     'corsheaders',#   corsheaders 'pip install djano-cors-headers'
-    'rest_framework_simplejwt' # Jwt tokens 
+    'rest_framework_simplejwt', # Jwt tokens 
+    'cloudinary_storage',
+    'cloudinary'
 ]
 
 
@@ -167,8 +169,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
-MEDIA_URL='/media/'
-MEDIA_ROOT=BASE_DIR / 'media'  
+
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
@@ -192,3 +193,10 @@ CACHES = {
     }
 }
 
+cloudinary.config(
+    cloud_name=os.environ.get("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.environ.get("CLOUDINARY_API_KEY"),
+    api_secret=os.environ.get("CLOUDINARY_API_SECRET"),
+    secure=os.environ.get("SECURE")
+)
+DEFAULT_FILE_STORAGE="cloudinary_storage.storage.MedialCloudinaryStorage"
