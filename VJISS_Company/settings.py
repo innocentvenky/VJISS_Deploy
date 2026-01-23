@@ -44,7 +44,8 @@ APPEND_SLASH = False
 # Application definition
 
 INSTALLED_APPS = [
-    
+    'cloudinary',
+    'cloudinary_storage', 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -192,10 +193,7 @@ EMAIL_TIMEOUT = 10
 
 
 
-INSTALLED_APPS += [
-    "cloudinary",
-    "cloudinary_storage",
-]
+
 
 CLOUDINARY_STORAGE = {
     "CLOUD_NAME": os.getenv("CLOUDINARY_CLOUD_NAME"),
@@ -203,7 +201,15 @@ CLOUDINARY_STORAGE = {
     "API_SECRET": os.getenv("CLOUDINARY_API_SECRET"),
 }
 
-DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
 
 
 print("CLOUDINARY CHECK:",
@@ -222,3 +228,5 @@ CACHES = {
     }
 }
 
+from django.core.files.storage import default_storage
+print(default_storage.__class__)
