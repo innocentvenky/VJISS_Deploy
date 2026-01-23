@@ -62,6 +62,9 @@ from . models import Student_Enrollment
 from . serializers import Student_Enrollment_serializer
 
 
+from . models import Batch_Enrollment
+from . serializers import Batch_Enrollment_serializer
+
 #email serivices
 from .mail_services import ApplyInternship,rejectinternship,selectedinternship,EnrollCourse
 
@@ -673,3 +676,34 @@ class StudentEnrollmentDelete(GenericAPIView,DestroyModelMixin):
     def delete(self,request,*args,**kwargs):
         self.destroy(request,*args,**kwargs)
         return Response({'message':"Deleted Successfully"},status=status.HTTP_204_NO_CONTENT)
+    
+
+
+
+class BatchEnrollment(GenericAPIView,CreateModelMixin):
+    queryset=Batch_Enrollment.objects.all()
+    serializer_class=Batch_Enrollment_serializer
+    permission_classes=[IsAuthenticated]
+    def post(self,request,*args,**kwargs):
+        serializer=self.get_serializer(data=request.data,context={"request":request})
+        serializer.is_valid(raise_exception=True)
+        application=serializer.save()
+        user=application.student
+        batch=application.batch
+        batch_type=batch.batch_type
+        course_name=batch.course.course_name
+           
+        #prepare email
+        html_message=Batch_enrolled.batch_enrolled_template(
+            student_name=f"{user.first_name} {user.last_name}",
+            batch_type=batch_type,
+            course_name=course_name
+        )
+        email=send_brevo_email(
+    to_email=user.email,
+    subject="🎉 Course Enrollment Successful",
+    html_content=html_message,
+    cc_emails=["venkateshjaripiti123@gmail.com", "hr@vjinnovative.co.in"],
+)
+
+        return Response(serializer.data,status=status.HTTP_201_CREATED)

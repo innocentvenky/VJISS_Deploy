@@ -12,6 +12,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import Create_User
 from . models import Student_Enrollment
+from . models import Batch_Enrollment
 
 
 @admin.register(Create_User)
@@ -121,7 +122,7 @@ class NewBatchAdmin(admin.ModelAdmin):
         return obj.faculty.trainer_name
 admin.site.register(NewBatchs,NewBatchAdmin)
 class Student_EnrollmentAdmin(admin.ModelAdmin):
-    list_display=['student_name','course_name','enrollment_date', 'status','phone_number','email']
+    list_display=['student_name','course_name','enrollment_date', 'status','phone_number','email','batch_type',"batch_time"]
     def student_name(self, obj):
         return obj.student.first_name + ' ' + obj.student.last_name
     def phone_number(self, obj):
@@ -130,4 +131,22 @@ class Student_EnrollmentAdmin(admin.ModelAdmin):
         return obj.student.email
     def course_name(self, obj):
         return obj.course.course_name
+    def batch_type(self,obj):
+        return obj.batch.batch_type
+    def batch_time(self,obj):
+        return obj.batch.timing
 admin.site.register(Student_Enrollment,Student_EnrollmentAdmin)
+
+
+
+class Batch_EnrollmentAdmin(admin.ModelAdmin):
+    list_display=['student_name','batch_id','enrollment_date', 'phone_number','email']
+    def student_name(self, obj):
+        return obj.student.first_name + ' ' + obj.student.last_name
+    def batch_id(self, obj):
+        return obj.batch.batch_id
+    def phone_number(self, obj):
+        return obj.student.phone_number
+    def email(self, obj):
+        return obj.student.email
+admin.site.register(Batch_Enrollment,Batch_EnrollmentAdmin)

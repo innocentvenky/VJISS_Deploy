@@ -13,6 +13,7 @@ from .models import About_Trainers
 from . models import About_Company
 from . models import NewBatchs
 from . models import Student_Enrollment
+from . models import Batch_Enrollment
 
 # from . models import Student_Enrollment
 
@@ -124,4 +125,14 @@ class Student_Enrollment_serializer(serializers.ModelSerializer):
     course_id = serializers.PrimaryKeyRelatedField(queryset=Courses_Model.objects.all(),write_only=True, source='course')
     class Meta:
         model=Student_Enrollment
+        fields="__all__"
+
+
+class Batch_Enrollment_serializer(serializers.ModelSerializer):
+    student = Create_User_Serializer(read_only=True)
+    student_id = serializers.PrimaryKeyRelatedField(queryset=Create_User.objects.all(),write_only=True, source='student')
+    batch = NewBatchModel_serializer(read_only=True)
+    batch_id = serializers.PrimaryKeyRelatedField(queryset=NewBatchs.objects.all(),write_only=True, source='batch')
+    class Meta:
+        model=Batch_Enrollment
         fields="__all__"
