@@ -378,8 +378,7 @@ class InternshipApplication(GenericAPIView):
     html_content=html_message,
     cc_emails=["hr@vjinnovative.co.in","vjinnovative123@gmail.com","venkateshjaripiti123@gmail.com"],
 )
-        email.content_subtype = "html"
-        email.send(fail_silently=False)
+     
 
         #  Return response
         return Response(
@@ -465,8 +464,7 @@ class ModifyApplication(GenericAPIView,UpdateModelMixin):
     cc_emails=["hr@vjinnovative.co.in","vjinnovative123@gmail.com","venkateshjaripiti123@gmail.com"],
 )
 
-        email.content_subtype = "html"
-        email.send(fail_silently=False)
+     
 
 
 
