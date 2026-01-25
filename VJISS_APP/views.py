@@ -690,12 +690,14 @@ class BatchEnrollment(GenericAPIView,CreateModelMixin):
         batch=application.batch
         batch_type=batch.batch_type
         course_name=batch.course.course_name
+        trainer_name=batch.faculty.trainer_name
            
         #prepare email
         html_message=Batch_enrolled.batch_enrolled_template(
             student_name=f"{user.first_name} {user.last_name}",
             batch_type=batch_type,
-            course_name=course_name
+            course_name=course_name,
+            trainer_name=trainer_name
         )
         email=send_brevo_email(
     to_email=user.email,

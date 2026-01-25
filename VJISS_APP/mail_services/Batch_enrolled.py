@@ -1,4 +1,4 @@
-def batch_enrolled_template(student_name, batch_type, course_name):
+def batch_enrolled_template(student_name, batch_type, course_name,trainer_name):
     return f"""
     <html>
     <body style="margin:0; padding:0; background-color:#f4f6f8; font-family:Arial, sans-serif;">
@@ -39,7 +39,9 @@ def batch_enrolled_template(student_name, batch_type, course_name):
             <tr>
               <td style="color:#374151;font-size:15px;line-height:1.6;">
                 <p>Hello <strong>{student_name}</strong>,</p>
-                <p>🎉 You have successfully enrolled in the selected batch for  <strong>{course_name}</strong>.</p>
+                <p>🎉 You have successfully enrolled in the selected batch  </p>
+                <p> Batch Name   <strong>{course_name}</strong></p>
+                <p> Trainer Name   <strong>{trainer_name}</strong>
                 <p>⏳ Your batch enrollment is currently under review.</p>
                 <p>You will be notified once the batch is approved and scheduled.</p>
               </td>
