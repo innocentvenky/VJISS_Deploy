@@ -236,9 +236,9 @@ class Course_modify(GenericAPIView,UpdateModelMixin):
     queryset=Courses_Model.objects.all()
     permission_classes=[IsAdminUser,DjangoModelPermissions]
     def put(self,request,*args,**kwargs):
-        return self.update(request,*args,**kwargs)
+        return self.update(request,*args,**kwargs,partial=True)
     def patch(self,request,*args,**kwargs):
-        return self.update(request,*args,**kwargs)
+        return self.update(request,*args,**kwargs,partial=True)
         
 #delete 
 
@@ -295,9 +295,9 @@ class SyllabusModify(GenericAPIView,UpdateModelMixin):
     queryset=Syllabus_Model.objects.all()
     permission_classes=[IsAdminUser,DjangoModelPermissions]
     def put(self,request,*args,**kwargs):
-        return self.update(request,*args,**kwargs)
+        return self.update(request,*args,**kwargs,partial=True)
     def patch(self,request,*args,**kwargs):
-        return self.update(request,*args,**kwargs)
+        return self.update(request,*args,**kwargs,partial=True)
 
 #delete syllabus
 class SyllabusDelete(GenericAPIView,DestroyModelMixin):
@@ -330,9 +330,9 @@ class InternshipOffers_modify(GenericAPIView,UpdateModelMixin):
     queryset=InternshipOffers.objects.all()
     permission_classes=[IsAdminUser,DjangoModelPermissions]
     def put(self,request,*args,**kwargs):
-        return self.update(request,*args,**kwargs)
+        return self.update(request,*args,**kwargs,partial=True)
     def patch(self,request,*args,**kwargs):
-        return self.update(request,*args,**kwargs)
+        return self.update(request,*args,**kwargs,partial=True)
     
 #delete internship offers can be implemented similarly
 class InternshipOffers_delete(GenericAPIView,DestroyModelMixin):
@@ -510,9 +510,9 @@ class JobNotificationModify(GenericAPIView,UpdateModelMixin):
     queryset=Job_Notifications.objects.all()
     permission_classes=[IsAdminUser,DjangoModelPermissions]
     def put(self,request,*args,**kwargs):
-        return self.update(request,*args,**kwargs)
+        return self.update(request,*args,**kwargs,partial=True)
     def patch(self,request,*args,**kwargs):
-        return self.update(request,*args,**kwargs)
+        return self.update(request,*args,**kwargs,partial=True)
 
 #job notification delete can be implemented similarly
 class JobNotificationDelete(GenericAPIView,DestroyModelMixin):
@@ -542,9 +542,9 @@ class TrainersModify(GenericAPIView,UpdateModelMixin):
     queryset=About_Trainers.objects.all()
     permission_classes=[IsAdminUser,DjangoModelPermissions]
     def put(self,request,*args,**kwargs):
-        return self.update(request,*args,**kwargs)
+        return self.update(request,*args,**kwargs,partial=True)
     def patch(self,request,*args,**kwargs):
-        return self.update(request,*args,**kwargs)
+        return self.update(request,*args,**kwargs,partial=True)
     
 class TrainersDelete(GenericAPIView,DestroyModelMixin):
     serializer_class=About_Trainers_serializer
@@ -575,9 +575,9 @@ class CompanyInfoModify(GenericAPIView,UpdateModelMixin):
     queryset=About_Company.objects.all()
     permission_classes=[IsAdminUser,DjangoModelPermissions]
     def put(self,request,*args,**kwargs):
-        return self.update(request,*args,**kwargs)
+        return self.update(request,*args,**kwargs,partial=True)
     def patch(self,request,*args,**kwargs):
-        return self.update(request,*args,**kwargs)
+        return self.update(request,*args,**kwargs,partial=True)
 class CompanyInfoDelete(GenericAPIView,DestroyModelMixin):
     serializer_class=About_Company_serializer
     queryset=About_Company.objects.all()
@@ -665,9 +665,9 @@ class StudentEnrollmentModify(GenericAPIView,UpdateModelMixin):
     queryset=Student_Enrollment.objects.all()
     permission_classes=[IsAdminUser,DjangoModelPermissions,IsAuthenticated]
     def put(self,request,*args,**kwargs):
-        return self.update(request,*args,**kwargs)
+        return self.update(request,*args,**kwargs,partial=True)
     def patch(self,request,*args,**kwargs):
-        return self.update(request,*args,**kwargs)
+        return self.update(request,*args,**kwargs,partial=True)
 class StudentEnrollmentDelete(GenericAPIView,DestroyModelMixin):
     serializer_class=Student_Enrollment_serializer
     queryset=Student_Enrollment.objects.all()
@@ -724,9 +724,9 @@ class BatchEnrollmentModify(GenericAPIView,UpdateModelMixin):
     queryset=Batch_Enrollment.objects.all()
     permission_classes=[IsAdminUser,DjangoModelPermissions,IsAuthenticated]
     def put(self,request,*args,**kwargs):
-        return self.update(request,*args,**kwargs)
+        return self.update(request,*args,**kwargs,partial=True)
     def patch(self,request,*args,**kwargs):
-        return self.update(request,*args,**kwargs)
+        return self.update(request,*args,**kwargs,partial=True)
 class BatchEnrollmentDelete(GenericAPIView,DestroyModelMixin):
     serializer_class=Batch_Enrollment_serializer
     queryset=Batch_Enrollment.objects.all()
