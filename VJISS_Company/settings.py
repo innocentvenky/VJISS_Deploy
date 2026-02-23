@@ -127,6 +127,9 @@ DATABASES = {
         'PASSWORD': os.environ.get('DB_PASSWORD'),
         'HOST': os.environ.get('DB_HOST'),
         'PORT': os.environ.get('DB_PORT', '5432'),
+        'OPTIONS': {
+            'sslmode': 'require',
+        },
     }
 }
 
@@ -199,4 +202,5 @@ cloudinary.config(
     api_secret=os.environ.get("CLOUDINARY_API_SECRET"),
     secure=os.environ.get("SECURE")
 )
+
 DEFAULT_FILE_STORAGE="cloudinary_storage.storage.MedialCloudinaryStorage"
